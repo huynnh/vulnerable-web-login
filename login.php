@@ -24,8 +24,9 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 
         if (sqlsrv_has_rows($stmt)) {
             $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
-			$_SESSION['id'] = $row['id'];
             $_SESSION['user_name'] = $row['user_name'];
+	    	$_SESSION['id'] = $row['id'];
+            
             header("Location: home.php");
             exit();
         } else {
